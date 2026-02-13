@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Dad 🎉</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top, #003f7d, #001f3f);
+    animation: backgroundGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundGlow {
+    from { background: radial-gradient(circle at top, #003f7d, #001f3f); }
+    to { background: radial-gradient(circle at top, #0059b3, #000c1a); }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 30px;
+    gap: 60px;
+    min-height: 100vh;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.dad-image {
+    width: 380px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.4s ease;
+}
+
+.dad-image:hover {
+    transform: scale(1.05);
+}
+
+.right-section {
+    flex: 1;
+    max-width: 550px;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.wish {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffdf6b;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+}
+
+.signature {
+    margin-top: 40px;
+    font-size: 18px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Floating light particles */
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); opacity: 0; }
+    20% { opacity: 0.7; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Play Music Button */
+#playButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffdf6b;
+    border: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255,223,107,0.6);
+    transition: 0.3s;
+    z-index: 10;
+}
+
+#playButton:hover {
+    background: #ffd633;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .right-section {
+        max-width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left-section">
+        <img src="dad.jpg" alt="My Dad" class="dad-image">
+    </div>
+
+    <div class="right-section">
+        <h1>Happy Birthday Dad 🎂</h1>
+
+        <p>
+            Dad, today we celebrate the incredible man you are. 
+            Your strength inspires me, your wisdom guides me, and your love protects our family every single day.
+            I am truly proud to call you my father.
+        </p>
+
+        <p>
+            Thank you for every sacrifice, every lesson, and every moment of encouragement.
+            May this new year of your life bring you good health, happiness, and continued success.
+            You deserve nothing but the best.
+        </p>
+
+        <div class="wish">
+            🎉 Wishing You Many More Amazing Years Ahead! 🎉
+        </div>
+
+        <div class="signature">
+            With love, Davie ❤️
+        </div>
+    </div>
+
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Play Music Button -->
+<button id="playButton">🎵 Play Music</button>
+
+<script>
+/* Floating Particles */
+for (let i = 0; i < 30; i++) {
+    let particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = Math.random() * 100 + "vw";
+    particle.style.animationDuration = (5 + Math.random() * 5) + "s";
+    particle.style.opacity = Math.random();
+    document.body.appendChild(particle);
+}
+
+/* Play Music Button Functionality */
+const playButton = document.getElementById("playButton");
+const bgMusic = document.getElementById("bgMusic");
+
+playButton.addEventListener("click", () => {
+    bgMusic.play();
+    playButton.style.display = "none"; // hide button after clicked
+});
+</script>
+
+</body>
+</html>
